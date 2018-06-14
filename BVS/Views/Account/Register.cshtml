@@ -1,0 +1,57 @@
+﻿@model BVS.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@using ( Html.BeginForm() )
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <hr />
+    @Html.ValidationSummary( "", new { @class = "text-danger" } )
+    <div class="panel panel-default r3-shadow">
+        <div class="panel-heading">
+            <div class="text-right">
+                <a class="btn btn-default" href="@Url.Action( "Users", "Manage" )">Cancel</a>
+                <input type="submit" class="btn btn-primary" id="submit" value="Register">
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        @Html.LabelFor( m => m.Email, new { @class = "control-label" } )<br />
+                        @Html.TextBoxFor( m => m.Email, new { @class = "form-control" } )
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        @Html.LabelFor( m => m.UserTypeID, new { @class = "control-label" } )
+                        @Html.DropDownListFor( m => m.UserTypeID, new SelectList( Model.UserTypes, "Value", "Text" ), new { @class = "form-control" } )
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        @Html.LabelFor( m => m.Password, new { @class = "control-label" } )
+                        @Html.PasswordFor( m => m.Password, new { @class = "form-control" } )
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        @Html.LabelFor( m => m.ConfirmPassword, new { @class = "control-label" } )
+                        @Html.PasswordFor( m => m.ConfirmPassword, new { @class = "form-control" } )
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

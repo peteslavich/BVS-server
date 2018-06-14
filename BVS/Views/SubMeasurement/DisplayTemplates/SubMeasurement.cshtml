@@ -1,0 +1,423 @@
+﻿@model BVS.DataModels.SubMeasurement
+
+    <div class="row">
+        <div class="col-md-6">
+            @Html.LabelFor( m => m.MeasurementOn, new { @class = "control-label" } )
+            <br />
+            @Html.DisplayFor( m => m.MeasurementOn, new { @class = "form-display" } )
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @Html.LabelFor( m => m.CalculatedVolume, new { @class = "control-label" } )
+            <br />
+            @Html.DisplayFor( m => m.CalculatedVolume, new { @class = "form-display" } )
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor1LED1, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor1LED1, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor1LED2, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor1LED2, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor1LED3, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor1LED3, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor1LED4, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor1LED4, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor1LED5, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor1LED5, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor1LED6, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor1LED6, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor1LED7, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor1LED7, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor1LED8, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor1LED8, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor2LED1, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor2LED1, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor2LED2, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor2LED2, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor2LED3, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor2LED3, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor2LED4, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor2LED4, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor2LED5, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor2LED5, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor2LED6, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor2LED6, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor2LED7, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor2LED7, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor2LED8, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor2LED8, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor3LED1, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor3LED1, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor3LED2, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor3LED2, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor3LED3, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor3LED3, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor3LED4, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor3LED4, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor3LED5, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor3LED5, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor3LED6, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor3LED6, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor3LED7, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor3LED7, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor3LED8, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor3LED8, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor4LED1, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor4LED1, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor4LED2, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor4LED2, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor4LED3, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor4LED3, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor4LED4, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor4LED4, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor4LED5, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor4LED5, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor4LED6, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor4LED6, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor4LED7, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor4LED7, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor4LED8, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor4LED8, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor5LED1, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor5LED1, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor5LED2, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor5LED2, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor5LED3, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor5LED3, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor5LED4, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor5LED4, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor5LED5, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor5LED5, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor5LED6, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor5LED6, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor5LED7, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor5LED7, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor5LED8, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor5LED8, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor6LED1, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor6LED1, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor6LED2, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor6LED2, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor6LED3, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor6LED3, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor6LED4, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor6LED4, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor6LED5, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor6LED5, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor6LED6, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor6LED6, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor6LED7, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor6LED7, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor6LED8, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor6LED8, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor7LED1, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor7LED1, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor7LED2, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor7LED2, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor7LED3, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor7LED3, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor7LED4, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor7LED4, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor7LED5, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor7LED5, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor7LED6, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor7LED6, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor7LED7, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor7LED7, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor7LED8, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor7LED8, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor8LED1, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor8LED1, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor8LED2, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor8LED2, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor8LED3, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor8LED3, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor8LED4, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor8LED4, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor8LED5, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor8LED5, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor8LED6, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor8LED6, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor8LED7, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor8LED7, new { @class = "form-display" } )
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    @Html.LabelFor( m => m.Sensor8LED8, new { @class = "control-label" } )
+                    <br />
+                    @Html.DisplayFor( m => m.Sensor8LED8, new { @class = "form-display" } )
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,29 @@
+﻿@model BVS.Models.UsersViewModel
+@{
+    ViewBag.Title = "Users";
+    var doctorGrid = new WebGrid( Model.Doctors, defaultSort: "Email" );
+    var adminGrid = new WebGrid( Model.Admins, defaultSort: "Email" );
+
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<div class="panel panel-default r3-shadow">
+    <div class="panel-heading">
+        <div class="text-right">
+            <a class="btn btn-primary" href="@Url.Action( "Register", "Account" )">Add User</a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <h3>Doctors</h3>
+        @MvcHtmlString.Create(
+    doctorGrid.GetHtml( tableStyle: "webGrid", headerStyle: "webGridHeader", alternatingRowStyle: "webGridAlt",
+        columns: new[] { doctorGrid.Column( "Email", "Email Address" ) } ).ToHtmlString()
+)
+        <h3>Admins</h3>
+        @MvcHtmlString.Create(
+    adminGrid.GetHtml( tableStyle: "webGrid", headerStyle: "webGridHeader", alternatingRowStyle: "webGridAlt",
+        columns: new[] { adminGrid.Column( "Email", "Email Address" ) } ).ToHtmlString()
+)
+    </div>
+</div>

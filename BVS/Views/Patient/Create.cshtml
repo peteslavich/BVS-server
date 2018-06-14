@@ -1,0 +1,50 @@
+﻿@model BVS.ViewModels.Patients.PatientPasswordViewModel
+
+@{
+    ViewBag.Title = "Add Patient";
+}
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink( "Home", "Index", "Home" )</li>
+    <li>@Html.ActionLink( "Patient List", "Index", "Patient" )</li>
+    <li class="active">Add Patient</li>
+</ol>
+<h1>Add Patient</h1>
+
+@using ( Html.BeginForm() )
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary( "", new { @class = "text-danger" } )
+
+    <div class="panel panel-default r3-shadow">
+        <div class="panel-heading">
+            <div class="text-right">
+                <a class="btn btn-default" href="@Url.Action( "Index" )">Cancel</a>
+                <input type="submit" class="btn btn-primary" id="submit" value="Submit">
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12 form-horizontal">
+                    @Html.EditorFor( m => m.Patient )
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        @Html.LabelFor( m => m.NewPassword, new { @class = "control-label" } )<br />
+                        @Html.PasswordFor( m => m.NewPassword, new { @class = "form-control" } )
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        @Html.LabelFor( m => m.ConfirmPassword, new { @class = "control-label" } )<br />
+                        @Html.PasswordFor( m => m.ConfirmPassword, new { @class = "form-control" } )
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

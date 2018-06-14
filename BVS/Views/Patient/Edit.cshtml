@@ -1,0 +1,35 @@
+﻿@model BVS.ViewModels.Patients.PatientViewModel
+
+@{
+    ViewBag.Title = "Edit Patient";
+}
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink( "Home", "Index", "Home" )</li>
+    <li>@Html.ActionLink( "Patient List", "Index", "Patient" )</li>
+    <li>@Html.ActionLink( "Patient", "Details", "Patient", new { id = @Model.Patient.ID }, null )</li>
+    <li class="active">Edit</li>
+</ol>
+<h1>Edit Patient Details</h1>
+<h2 class="entitysubtitle">@Model.Patient.FirstName @Model.Patient.LastName</h2>
+
+@Html.ValidationSummary( false, "", new { @class = "text-danger" } )
+
+@using ( Html.BeginForm() )
+{
+    <div class="panel panel-default r3-shadow">
+        <div class="panel-heading">
+            <div class="text-right">
+                <a class="btn btn-default" href="@Url.Action( "Details", new { id = Model.Patient.ID } )">Cancel</a>
+                <button class="btn btn-primary" type="submit">Save</button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="col-xs-12 form-horizontal">
+
+                @Html.AntiForgeryToken()
+                @Html.EditorFor( m => m.Patient )
+            </div>
+        </div>
+    </div>
+}

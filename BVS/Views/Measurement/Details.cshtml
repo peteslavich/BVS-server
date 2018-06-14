@@ -1,0 +1,32 @@
+﻿@model BVS.ViewModels.Measurements.MeasurementViewModel
+
+@{
+    var grid = new WebGrid( Model.SubMeasurements );
+    ViewBag.Title = "Measurement";
+
+}
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink( "Home", "Index", "Home" )</li>
+    <li>@Html.ActionLink( "Patient List", "Index", "Patient" )</li>
+    <li>@Html.ActionLink( "Patient", "Details", "Patient", new { id = @Model.Measurement.PatientID }, null )</li>
+    <li class="active">This Measurement</li>
+</ol>
+<h1>Measurement Details</h1>
+<h2 class="entitysubtitle">@Model.Measurement.Patient.FirstName @Model.Measurement.Patient.LastName - @Model.Measurement.MeasurementOn</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="panel-title">
+            Measurement
+        </span>
+    </div>
+    <div class="panel-body">
+        @Html.DisplayFor( m => m.Measurement )
+    </div>
+</div>
+
+@MvcHtmlString.Create(
+    grid.GetHtml( tableStyle: "webGrid", headerStyle: "webGridHeader", alternatingRowStyle: "webGridAlt",
+        columns: new[] { grid.Column( "Link", "", (item) => Html.ActionLink( "Select", "Details", "SubMeasurement", new { id = item.ID }, null ) ), grid.Column( "MeasurementOn", "Measurement Time" ), grid.Column( "CalculatedVolume", "Calculated Volume" ) } ).ToHtmlString()
+)

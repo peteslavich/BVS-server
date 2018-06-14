@@ -1,0 +1,28 @@
+﻿@model BVS.ViewModels.SubMeasurements.SubMeasurementViewModel
+
+@{
+    ViewBag.Title = "SubMeasurement Details";
+}
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink( "Home", "Index", "Home" )</li>
+    <li>@Html.ActionLink( "Patient List", "Index", "Patient" )</li>
+    <li>@Html.ActionLink( "Patient", "Details", "Patient", new { id = @Model.SubMeasurement.Measurement.PatientID }, null )</li>
+    <li>@Html.ActionLink( "Measurement", "Details", "Measurement", new { id = @Model.SubMeasurement.MeasurementID }, null )</li>
+    <li class="active">This SubMeasurement</li>
+</ol>
+<h1>SubMeasurement Details</h1>
+<h2 class="entitysubtitle">@Model.SubMeasurement.Measurement.Patient.FirstName @Model.SubMeasurement.Measurement.Patient.LastName - @Model.SubMeasurement.Measurement.MeasurementOn</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="panel-title">
+            Parent Measurement
+        </span>
+    </div>
+    <div class="panel-body">
+        @Html.DisplayFor( m => m.SubMeasurement.Measurement )
+    </div>
+</div>
+
+@Html.DisplayFor( m => m.SubMeasurement )

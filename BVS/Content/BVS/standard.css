@@ -1,0 +1,274 @@
+﻿.r3-shadow {
+    box-shadow: 3px 3px 10px #ccc;
+}
+
+/* Reduce size/prominence of text in HTML Footer element */
+footer {
+    font-size: .75em;
+    margin-top: .5em;
+}
+
+/* Validation */
+
+.validation-summary-valid {
+    display: none;
+}
+
+.input-validation-error {
+    background-color: #ebcccc;
+    border-color: #b92c28;
+}
+
+.input-validation-valid {
+    background-color: none;
+    border-color: inherit;
+}
+
+/* Environment Indicator(s) */
+
+.environment-indicator {
+    background-color: #ffe990;
+    font-size: 1.2em;
+    color: #000;
+    border-bottom: #ccba73 1px solid;
+    font-weight: 800;
+    padding: 5px 5px 5px 5px;
+}
+
+/* Emulation Indicator(s) */
+.emulation-indicator {
+    background-color: #ebcccc;
+    font-size: 1.1em;
+    color: #000;
+    border-bottom: #bca3a3 1px solid;
+    font-weight: 600;
+    padding: 5px 5px 5px 5px;
+}
+
+address {
+    margin-top: 5px;
+    font-size: .8em;
+}
+
+/***UNDER CONSTRUCTION CLASSES ****/
+.underconstructiontitle {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.underconstructiontext {
+}
+
+/***** SOURCE CODE VIEWER ******/
+
+.sourcecodeviewer-viewport {
+}
+
+    .sourcecodeviewer-viewport pre {
+        white-space: pre;
+        word-wrap: normal;
+        overflow: auto;
+        height: 500px;
+        width: 98%;
+    }
+
+.code {
+    font-family: Consolas;
+}
+
+.codecomment {
+    color: green;
+    font-family: Consolas;
+}
+
+/***** USER IMAGE ******/
+.user-menu > img {
+    border-radius: 25px;
+    display: inline-block;
+    height: 20px;
+    margin: -2px 0 0 0;
+}
+
+.user-menu-md > img {
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 0 0 0;
+    width: 50px;
+    float: right;
+}
+
+.profile-image > img {
+    border-radius: 25px;
+    display: inline-block;
+    height: 150px;
+    margin: -2px 0 0 0;
+    border: 1px solid #000;
+}
+
+/***** KENDO OVERRIDES ******/
+/*Align content in Kendo grid tables to top of cells*/
+.k-grid tr td {
+    vertical-align: top;
+}
+
+/*Use for putting entity name on a separate line below the page title*/
+.entitysubtitle {
+    margin-top: -3px;
+    font-size: 1.3em;
+    color: #3c763d;
+    font-weight: 600;
+}
+
+/*Use for injecting an entity name into the page title using a span when the page title/entity names are typically short*/
+.entitynameintitle {
+    color: #3c763d;
+    font-weight: 600;
+}
+
+.welcomepanelgreeting {
+    font-size: 1.4em;
+    color: #536878;
+}
+
+.searchhintpanel {
+    background-color: #eee;
+}
+
+.searchhinttext {
+    font-size: 1.3em;
+    color: #666;
+}
+
+.archived-indicator {
+    color: #FFF;
+    font-size: .8em;
+    padding: 5px;
+}
+
+ul.r3-arrow {
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+    ul.r3-arrow li:before {
+        font-family: 'Glyphicons Regular';
+        content: "\e212";
+        padding-right: 5px;
+    }
+
+ul.r3-arrow-indent {
+    display: table;
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+    ul.r3-arrow-indent > li {
+        display: table-row;
+    }
+
+        ul.r3-arrow-indent > li::before {
+            font-family: 'Glyphicons Regular';
+            content: "\e212";
+            padding-right: 5px;
+            display: table-cell; /* aha! */
+            text-align: right;
+        }
+
+ul.r3-arrow-indent-sub {
+    display: table;
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+    ul.r3-arrow-indent-sub > li {
+        display: table-row;
+    }
+
+        ul.r3-arrow-indent-sub > li::before {
+            font-family: 'Glyphicons Regular';
+            content: "\e346";
+            padding-right: 5px;
+            display: table-cell; /* aha! */
+            text-align: right;
+        }
+
+/***** Model Metadata Display (Record Metadata -- Created/Updated/Archived) ******/
+.archivedmetadisplay,
+.createdupdateddisplay {
+    font-size: .85em;
+}
+
+.archivedmetadisplay-comment {
+    font-style: italic;
+}
+
+.archivedmetadisplay-row,
+.createdupdateddisplay-row {
+    margin-top: 5px;
+}
+
+a.leftnav-toggle {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+    a.leftnav-toggle :hover {
+        text-decoration: none;
+    }
+
+    a.leftnav-toggle :visited {
+        text-decoration: none;
+    }
+
+.highlightedtext {
+    background-color: yellow;
+    font-weight: 500;
+}
+
+.pagehelp {
+    border-radius: 2px;
+    padding: 2px;
+    font-size: 1.1em;
+}
+
+.toollink {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.form-control-search-filter-pending {
+    background-color: #fceedb;
+    color: #000;
+    font-weight: 600;
+    border-color: #f6cd94;
+}
+
+.form-control-search-filter-applied {
+    background-color: #d9ead9;
+    color: #000;
+    font-weight: 600;
+    border-color: #b3d5b3;
+}
+
+.k-grid-norecords {
+    font-weight: bold;
+    /*padding: 10px;*/
+}
+
+.k-grid-header .k-header {
+    overflow: visible !important;
+    white-space: normal !important;
+    vertical-align: text-top !important;
+}
+
+.reorder-indicator {
+    cursor: move;
+}
+
+.text-mostly-muted {
+    color: #999;
+}

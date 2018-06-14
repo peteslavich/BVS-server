@@ -1,0 +1,50 @@
+﻿@model BVS.DataModels.Measurement
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <span class="control-label">
+                @Html.LabelFor( m => m.MeasurementOn )
+            </span>
+            <br />
+            <span class="form-display">
+                @Html.DisplayFor( m => m.MeasurementOn )
+            </span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            @Html.LabelFor( m => m.CalculatedVolume, new { @class = "control-label" } )
+            <br />
+            @Html.DisplayFor( m => m.CalculatedVolume, new { @class = "form-display" } )
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            @Html.LabelFor( m => m.PatientRating, new { @class = "control-label" } )
+            <br />
+            @if ( Model.IsPatientRatingThumbsUp.HasValue && Model.IsPatientRatingThumbsUp.Value )
+            {
+                @Html.Display( "Thumbs Up " )
+            }
+            else if ( Model.IsPatientRatingThumbsDown.HasValue && Model.IsPatientRatingThumbsDown.Value )
+            {
+                @Html.Display( "Thumbs Down " )
+            }
+
+            @Html.DisplayFor( m => m.PatientRating, new { @class = "form-display" } )
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            @Html.LabelFor( m => m.PatientFeedback, new { @class = "control-label" } )
+            <br />
+            @Html.DisplayFor( m => m.PatientFeedback, new { @class = "form-display" } )
+        </div>
+    </div>
+</div>

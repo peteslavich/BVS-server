@@ -1,0 +1,28 @@
+﻿@model BVS.DataModels.Patient
+
+<div class="row">
+    <div class="col-xs-12">
+        @Html.LabelFor( m => m.EmailAddress, new { @class = "control-label" } )<br />
+        @Html.TextBoxFor( m => m.EmailAddress, new { @class = "form-control" } )
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        @Html.LabelFor( m => m.FirstName, new { @class = "control-label" } )<br />
+        @Html.TextBoxFor( m => m.FirstName, new { @class = "form-control" } )
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        @Html.LabelFor( m => m.LastName, new { @class = "control-label" } )<br />
+        @Html.TextBoxFor( m => m.LastName, new { @class = "form-control" } )
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        @Html.LabelFor( m => m.Notes, new { @class = "control-label" } )<br />
+        @Html.TextAreaFor( m => m.Notes, new { @class = "form-control", cols = 100 } )
+    </div>
+</div>
