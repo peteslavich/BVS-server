@@ -77,28 +77,20 @@ namespace BVS.APIControllers
 
             BusinessServiceOperationResult result;
 
-            using ( var transaction = new TransactionScope() )
+            result = BVSBusinessServices.Measurements.Save( measurement );
+
+            if ( !result.HasErrors && !isUpdate )
             {
-                result = BVSBusinessServices.Measurements.Save( measurement );
-
-                if ( !result.HasErrors && !isUpdate )
+                if ( value.SubMeasurements != null )
                 {
-                    if ( value.SubMeasurements != null )
+                    foreach ( var subMeasurement in value.SubMeasurements )
                     {
-                        foreach ( var subMeasurement in value.SubMeasurements )
+                        subMeasurement.MeasurementID = measurement.ID;
+                        result = BVSBusinessServices.SubMeasurements.Save( subMeasurement );
+                        if ( result.HasErrors )
                         {
-                            subMeasurement.MeasurementID = measurement.ID;
-                            result = BVSBusinessServices.SubMeasurements.Save( subMeasurement );
-                            if ( result.HasErrors )
-                            {
-                                break;
-                            }
+                            break;
                         }
-                    }
-
-                    if ( !result.HasErrors )
-                    {
-                        transaction.Complete();
                     }
                 }
             }

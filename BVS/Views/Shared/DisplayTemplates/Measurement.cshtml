@@ -28,11 +28,11 @@
             <br />
             @if ( Model.IsPatientRatingThumbsUp.HasValue && Model.IsPatientRatingThumbsUp.Value )
             {
-                @Html.Display( "Thumbs Up " )
+                @Html.DisplayName( "Thumbs Up " )
             }
             else if ( Model.IsPatientRatingThumbsDown.HasValue && Model.IsPatientRatingThumbsDown.Value )
             {
-                @Html.Display( "Thumbs Down " )
+                @Html.DisplayName( "Thumbs Down " )
             }
 
             @Html.DisplayFor( m => m.PatientRating, new { @class = "form-display" } )
