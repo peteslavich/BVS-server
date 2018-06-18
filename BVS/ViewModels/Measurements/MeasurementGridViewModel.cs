@@ -9,7 +9,7 @@ namespace BVS.ViewModels.Measurements
 {
     public class MeasurementGridViewModel
     {
-        public decimal? CalculatedVolume { get; set; }
+        public int? CalculatedVolume { get; set; }
         public int ID { get; set; }
         public bool IsVoided { get; set; }
         public DateTime MeasurementOn { get; set; }

@@ -9,7 +9,7 @@ namespace BVS.ViewModels.SubMeasurements
 {
     public class SubMeasurementGridViewModel
     {
-        public decimal? CalculatedVolume { get; set; }
+        public int? CalculatedVolume { get; set; }
 
         public int ID { get; set; }
 

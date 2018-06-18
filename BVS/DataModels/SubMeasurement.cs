@@ -11,7 +11,7 @@ namespace BVS.DataModels
     public partial class SubMeasurement
     {
         [Display( Name = "Calculated Volume" )]
-        public decimal? CalculatedVolume { get; set; }
+        public int? CalculatedVolume { get; set; }
 
         public Guid ClientGUID { get; set; }
 

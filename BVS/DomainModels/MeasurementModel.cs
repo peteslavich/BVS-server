@@ -8,7 +8,7 @@ namespace BVS.DomainModels
 {
     public class MeasurementModel
     {
-        public decimal? CalculatedVolume { get; set; }
+        public int? CalculatedVolume { get; set; }
         public Guid ClientGUID { get; set; }
         public int ID { get; set; }
         public bool? IsPatientRatingThumbsDown { get; set; }

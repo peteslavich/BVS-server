@@ -21,10 +21,6 @@ namespace BVS.BusinessServices
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Measurement>()
-                .Property( e => e.CalculatedVolume )
-                .HasPrecision( 10, 5 );
-
-            modelBuilder.Entity<Measurement>()
                 .Property( e => e.PatientFeedback )
                 .IsUnicode( false );
 
@@ -32,10 +28,6 @@ namespace BVS.BusinessServices
                 .HasMany( e => e.SubMeasurements )
                 .WithRequired( e => e.Measurement )
                 .WillCascadeOnDelete( false );
-
-            modelBuilder.Entity<SubMeasurement>()
-                .Property( e => e.CalculatedVolume )
-                .HasPrecision( 10, 5 );
 
             modelBuilder.Entity<Patient>()
                 .Property( e => e.FirstName )
