@@ -14,6 +14,9 @@ namespace BVS
             bundles.Add( new ScriptBundle( "~/bundles/jqueryval" ).Include(
                         "~/Scripts/jquery.validate*" ) );
 
+            bundles.Add( new ScriptBundle( "~/bundles/jquery-ui" ).Include(
+            "~/Scripts/jquery-ui*" ) );
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add( new ScriptBundle( "~/bundles/modernizr" ).Include(
@@ -40,6 +43,16 @@ namespace BVS
                       "~/Content/BVS/standard.css",
                       "~/Content/BVS/bootstrap.css",
                       "~/Content/BVS/webgrid.css"
+                      ) );
+
+            bundles.Add( new StyleBundle( "~/Content/jquery-ui-css" ).Include(
+                      "~/Content/jquery-ui.css",
+                      "~/Content/jquery-ui.min.css",
+                      "~/Content/jquery-ui.structure.css",
+                      "~/Content/jquery-ui.structure.min.css",
+                      "~/Content/jquery-ui.theme.css",
+                      "~/Content/jquery-ui.theme.min.css"
+
                       ) );
 
             BundleTable.EnableOptimizations = !HttpContext.Current.IsDebuggingEnabled;

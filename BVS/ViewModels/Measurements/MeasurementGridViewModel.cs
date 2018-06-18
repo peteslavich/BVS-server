@@ -15,6 +15,6 @@ namespace BVS.ViewModels.Measurements
         public DateTime MeasurementOn { get; set; }
         public string PatientFeedback { get; set; }
         public int PatientID { get; set; }
-        public int? PatientRating { get; set; }
+        public string PatientRating { get; set; }
     }
 }

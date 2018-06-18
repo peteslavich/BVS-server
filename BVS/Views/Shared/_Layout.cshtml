@@ -8,10 +8,12 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin" rel="stylesheet" type="text/css">
     @Styles.Render( "~/Content/css" )
     @Styles.Render( "~/Content/bvs-css" )
-    @Scripts.Render( "~/bundles/modernizr" )
+    @Styles.Render( "~/Content/jquery-ui-css" )
 
+    @Scripts.Render( "~/bundles/modernizr" )
     @Scripts.Render( "~/bundles/jquery" )
     @Scripts.Render( "~/bundles/jqueryval" )
+    @Scripts.Render( "~/bundles/jquery-ui" )
     @Scripts.Render( "~/bundles/bootstrap" )
     @Scripts.Render( "~/bundles/momentjs" )
     @Scripts.Render( "~/bundles/chartjs" )
@@ -45,12 +47,5 @@
             <p>&copy; @DateTime.Now.Year - BVS</p>
         </footer>
     </div>
-
-    @Scripts.Render( "~/bundles/jquery" )
-    @Scripts.Render( "~/bundles/jqueryval" )
-    @Scripts.Render( "~/bundles/bootstrap" )
-    @Scripts.Render( "~/bundles/chartjs" )
-
-    @RenderSection( "scripts", required: false )
 </body>
 </html>

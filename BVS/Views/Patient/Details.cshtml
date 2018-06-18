@@ -36,7 +36,8 @@
     </div>
 </div>
 <div>
-    @Html.ActionLink( "Chart Measurement Data", "MeasurementChart", new { id = Model.Patient.ID, startDate = new DateTime( 2018, 3, 5 ), endDate = new DateTime( 2018, 3, 6 ) } )
+    @Html.ActionLink( "Chart Measurement Data", "MeasurementChart", new { id = Model.Patient.ID, startDate = DateTime.Today.AddDays( -3 ), endDate = DateTime.Today }, new { @class = "btn btn-default" } )
+    @Html.ActionLink( "Download Measurement Data CSV", "MeasurementDownload", new { id = Model.Patient.ID }, new {@class="btn btn-default"} )
 </div>
 @MvcHtmlString.Create(
     grid.GetHtml( tableStyle: "webGrid", headerStyle: "webGridHeader", alternatingRowStyle: "webGridAlt",

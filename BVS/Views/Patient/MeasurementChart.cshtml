@@ -1,7 +1,7 @@
 ﻿@model BVS.ViewModels.Patients.PatientChartViewModel
 
 @{
-    ViewBag.Title = "Users";
+    ViewBag.Title = "Patient Chart";
 
 }
 
@@ -14,29 +14,30 @@
 <h1>Patient Measurements Chart</h1>
 <h2 class="entitysubtitle">@Model.Patient.FirstName @Model.Patient.LastName</h2>
 
-<div class="panel panel-default r3-shadow">
-    <div class="panel-heading">
-        <div class="text-right">
-            <a class="btn btn-success" href="@Url.Action( "MeasurementDownload", new { id = Model.Patient.ID } )">
-                <span class="glyphicons glyphicons-edit"></span>
-                Download Data
-            </a>
+
+@using ( Html.BeginForm() )
+{
+    <div class="panel panel-default r3-shadow">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.HiddenFor( m => m.Patient.ID )
+                    @Html.LabelFor( m => m.StartDate )<br />
+                    <input type="text" id="@Html.IdFor(m => m.StartDate)" value="@Model.StartDate.Value.ToString("d")">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor( m => m.EndDate )<br />
+                    <input type="text" id="@Html.IdFor(m => m.EndDate)" value="@Model.EndDate.Value.ToString("d")">
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <input type="button" class="btn btn-primary" id="buttonSubmit" value="Submit">
         </div>
     </div>
-    <div class="panel-body">
-        @Html.DisplayFor( m => m.Patient )
-    </div>
-</div>
-
-@*<style>
-        #chart_container {
-            width: @(Model.ChartWidth)px;
-            height: 800px;
-            border: 1px solid #ddd;
-            padding: 1px;
-            border-radius: 4px;
-        }
-    </style>*@
+}
 
 <div class="row">
     <div class="col-xs-12">
@@ -49,6 +50,21 @@
 </div>
 
 <script type="text/javascript">
+
+    $("#buttonSubmit").on("click", function () {
+        var startDate = $("#@Html.IdFor( m => m.StartDate )").val()
+        var endDate = $("#@Html.IdFor( m => m.EndDate )").val()
+
+        window.location.href = encodeURI("@Url.Action( "MeasurementChart", new { id = Model.Patient.ID } )" + "?startDate=" + startDate + "&endDate=" + endDate);
+    });
+
+    $(function () {
+        $("#@Html.IdFor( m => m.StartDate )").datepicker();
+    });
+
+    $(function () {
+        $("#@Html.IdFor( m => m.EndDate )").datepicker();
+    });
 
     var ctx = $("#patient_chart");
     var barChart = new Chart(ctx, {

@@ -113,7 +113,7 @@ namespace BVS.Controllers
                 Patient = BVSBusinessServices.Patients.GetByID( id )
             };
 
-            var patientMeasurements = BVSBusinessServices.Measurements.GetByPatientID( id );
+            var patientMeasurements = BVSBusinessServices.Measurements.GetByPatientID( id ).OrderByDescending( m => m.MeasurementOn );
             patientViewModel.PatientMeasurements = new List<MeasurementGridViewModel>();
 
             foreach ( Measurement measurement in patientMeasurements )
@@ -124,7 +124,7 @@ namespace BVS.Controllers
                     CalculatedVolume = measurement.CalculatedVolume,
                     MeasurementOn = measurement.MeasurementOn,
                     PatientFeedback = measurement.PatientFeedback,
-                    PatientRating = measurement.PatientRating,
+                    PatientRating = (measurement.PatientRating.HasValue ? (measurement.PatientRating.ToString() + " ") : "") + ((measurement.IsPatientRatingThumbsUp.HasValue && measurement.IsPatientRatingThumbsUp.Value) ? "(Thumbs Up)" : "") + ((measurement.IsPatientRatingThumbsDown.HasValue && measurement.IsPatientRatingThumbsDown.Value) ? "(Thumbs Down)" : ""),
                     PatientID = measurement.PatientID,
                     IsVoided = measurement.IsVoided
                 };
@@ -215,7 +215,7 @@ namespace BVS.Controllers
                     CalculatedVolume = measurement.CalculatedVolume,
                     MeasurementOn = measurement.MeasurementOn,
                     PatientFeedback = measurement.PatientFeedback,
-                    PatientRating = measurement.PatientRating,
+                    PatientRating = measurement.PatientRating.HasValue ? measurement.PatientRating.ToString() : "",
                     PatientID = measurement.PatientID,
                     IsVoided = measurement.IsVoided
                 };
