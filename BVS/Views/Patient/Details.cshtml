@@ -37,12 +37,20 @@
 </div>
 <div>
     @Html.ActionLink( "Chart Measurement Data", "MeasurementChart", new { id = Model.Patient.ID, startDate = DateTime.Today.AddDays( -3 ), endDate = DateTime.Today }, new { @class = "btn btn-default" } )
-    @Html.ActionLink( "Download Measurement Data CSV", "MeasurementDownload", new { id = Model.Patient.ID }, new {@class="btn btn-default"} )
+    @Html.ActionLink( "Download Measurement Data CSV", "MeasurementDownload", new { id = Model.Patient.ID }, new { @class = "btn btn-default" } )
 </div>
 @MvcHtmlString.Create(
     grid.GetHtml( tableStyle: "webGrid", headerStyle: "webGridHeader", alternatingRowStyle: "webGridAlt",
         columns: new[] { grid.Column( "Link", "Link", (item) => Html.ActionLink( "Select", "Details", "Measurement", new { id = item.ID }, null ) ), grid.Column( "MeasurementOn", "Measurement Time" ), grid.Column( "CalculatedVolume", "Calculated Volume" ), grid.Column( "PatientRating", "Patient Rating" ), grid.Column( "PatientFeedback", "Patient Feedback" ), } ).ToHtmlString()
 )
+@if ( Model.PatientMeasurements.Count == 0 )
+{
+    <div class="row">
+        <div class="col-xs-12">
+            &nbsp;&nbsp;No measurement data.
+        </div>
+    </div>
+}
 
 <form action="@Url.Action( "Delete", new { id = Model.Patient.ID } )" method="post">
     <div class="modal fade" id="DeleteWindow" tabindex="-1" role="dialog" aria-labelledby="AddFacilityContactWindowLabel" aria-hidden="true" style="display: none;">
