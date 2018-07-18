@@ -14,11 +14,15 @@ namespace BVS.Controllers
     {
         public ActionResult Details(int id)
         {
+            TimeZoneInfo timeZoneInfo = TimeZoneInfo.Local;
+
             var viewModel = new SubMeasurementViewModel
             {
                 SubMeasurement = BVSBusinessServices.SubMeasurements.GetByID( id )
             };
+            viewModel.SubMeasurement.MeasurementOn = TimeZoneInfo.ConvertTimeFromUtc( viewModel.SubMeasurement.MeasurementOn, timeZoneInfo );
 
+            viewModel.SubMeasurement.Measurement.MeasurementOn = TimeZoneInfo.ConvertTimeFromUtc( viewModel.SubMeasurement.Measurement.MeasurementOn, timeZoneInfo );
             return View( viewModel );
         }
     }
