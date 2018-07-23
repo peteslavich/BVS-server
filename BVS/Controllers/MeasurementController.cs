@@ -14,15 +14,12 @@ namespace BVS.Controllers
     {
         public ActionResult Details(int id)
         {
-            TimeZoneInfo timeZoneInfo = TimeZoneInfo.Local;
-
             var measurementViewModel = new MeasurementViewModel
             {
                 Measurement = BVSBusinessServices.Measurements.GetByID( id ),
                 SubMeasurements = new List<SubMeasurementGridViewModel>()
             };
 
-            measurementViewModel.Measurement.MeasurementOn = TimeZoneInfo.ConvertTimeFromUtc( measurementViewModel.Measurement.MeasurementOn, timeZoneInfo );
             var SubMeasurements = BVSBusinessServices.SubMeasurements.GetByMeasurementID( id );
 
             foreach ( SubMeasurement measurement in SubMeasurements )
@@ -31,7 +28,7 @@ namespace BVS.Controllers
                 {
                     ID = measurement.ID,
                     CalculatedVolume = measurement.CalculatedVolume,
-                    MeasurementOn = TimeZoneInfo.ConvertTimeFromUtc( measurement.MeasurementOn, timeZoneInfo ),
+                    MeasurementOn = measurement.MeasurementOn,
                     MeasurementID = measurement.MeasurementID,
                     IsVoided = measurement.IsVoided
                 };

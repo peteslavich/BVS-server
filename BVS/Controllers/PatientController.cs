@@ -116,15 +116,13 @@ namespace BVS.Controllers
             var patientMeasurements = BVSBusinessServices.Measurements.GetByPatientID( id ).OrderByDescending( m => m.MeasurementOn );
             patientViewModel.PatientMeasurements = new List<MeasurementGridViewModel>();
 
-            TimeZoneInfo timeZoneInfo = TimeZoneInfo.Local;
-
             foreach ( Measurement measurement in patientMeasurements )
             {
                 var u = new MeasurementGridViewModel()
                 {
                     ID = measurement.ID,
                     CalculatedVolume = measurement.CalculatedVolume,
-                    MeasurementOn = TimeZoneInfo.ConvertTimeFromUtc( measurement.MeasurementOn, timeZoneInfo ),
+                    MeasurementOn = measurement.MeasurementOn,
                     PatientFeedback = measurement.PatientFeedback,
                     PatientRating = (measurement.PatientRating.HasValue ? (measurement.PatientRating.ToString() + " ") : "") + ((measurement.IsPatientRatingThumbsUp.HasValue && measurement.IsPatientRatingThumbsUp.Value) ? "(Thumbs Up)" : "") + ((measurement.IsPatientRatingThumbsDown.HasValue && measurement.IsPatientRatingThumbsDown.Value) ? "(Thumbs Down)" : ""),
                     PatientID = measurement.PatientID,
@@ -186,8 +184,6 @@ namespace BVS.Controllers
 
         public ActionResult MeasurementChart(int id, DateTime? startDate = null, DateTime? endDate = null)
         {
-            TimeZoneInfo timeZoneInfo = TimeZoneInfo.Local;
-
             var patientViewModel = new PatientChartViewModel
             {
                 Patient = BVSBusinessServices.Patients.GetByID( id ),
@@ -196,18 +192,18 @@ namespace BVS.Controllers
                 PatientMeasurements = new List<MeasurementGridViewModel>()
             };
 
-            IEnumerable<Measurement> patientMeasurements = BVSBusinessServices.Measurements.GetByPatientID( id ).ToList();
+            var patientMeasurements = BVSBusinessServices.Measurements.GetByPatientID( id );
 
             if ( startDate.HasValue )
             {
                 startDate = startDate.Value.Date;
-                patientMeasurements = patientMeasurements.Where( x => TimeZoneInfo.ConvertTimeFromUtc( x.MeasurementOn, timeZoneInfo ) >= startDate );
+                patientMeasurements = patientMeasurements.Where( x => x.MeasurementOn >= startDate );
             }
             if ( endDate.HasValue )
             {
                 endDate = endDate.Value.Date;
                 var nextDay = endDate.Value.AddDays( 1 );
-                patientMeasurements = patientMeasurements.Where( x => TimeZoneInfo.ConvertTimeFromUtc( x.MeasurementOn, timeZoneInfo ) < nextDay );
+                patientMeasurements = patientMeasurements.Where( x => x.MeasurementOn < nextDay );
             }
             patientMeasurements = patientMeasurements.OrderBy( m => m.MeasurementOn );
 
@@ -217,7 +213,7 @@ namespace BVS.Controllers
                 {
                     ID = measurement.ID,
                     CalculatedVolume = measurement.CalculatedVolume,
-                    MeasurementOn = TimeZoneInfo.ConvertTimeFromUtc( measurement.MeasurementOn, timeZoneInfo ),
+                    MeasurementOn = measurement.MeasurementOn,
                     PatientFeedback = measurement.PatientFeedback,
                     PatientRating = measurement.PatientRating.HasValue ? measurement.PatientRating.ToString() : "",
                     PatientID = measurement.PatientID,
@@ -244,8 +240,6 @@ namespace BVS.Controllers
 
         public ActionResult MeasurementDownload(int id, DateTime? startDate = null, DateTime? endDate = null)
         {
-            TimeZoneInfo timeZoneInfo = TimeZoneInfo.Local;
-
             var patient = BVSBusinessServices.Patients.GetByID( id );
             var measurements = patient.Measurements.Where( x => !x.IsVoided );
             if ( startDate != null )
@@ -262,11 +256,11 @@ namespace BVS.Controllers
             s.Append( "ClientGuid,PatientID,MeasurementOn,CalculatedVolume,IsPatientRatingThumbsUp,IsPatientRatingThumbsDown,PatientRating,PatientFeedback,SubmeasurementClientGuid,SubmeasurementOn,SubmeasurementCalculatedVolume,Sensor1LED1,Sensor2LED1,Sensor3LED1,Sensor4LED1,Sensor5LED1,Sensor6LED1,Sensor7LED1,Sensor8LED1,Sensor1LED2,Sensor2LED2,Sensor3LED2,Sensor4LED2,Sensor5LED2,Sensor6LED2,Sensor7LED2,Sensor8LED2,Sensor1LED3,Sensor2LED3,Sensor3LED3,Sensor4LED3,Sensor5LED3,Sensor6LED3,Sensor7LED3,Sensor8LED3,Sensor1LED4,Sensor2LED4,Sensor3LED4,Sensor4LED4,Sensor5LED4,Sensor6LED4,Sensor7LED4,Sensor8LED4,Sensor1LED5,Sensor2LED5,Sensor3LED5,Sensor4LED5,Sensor5LED5,Sensor6LED5,Sensor7LED5,Sensor8LED5,Sensor1LED6,Sensor2LED6,Sensor3LED6,Sensor4LED6,Sensor5LED6,Sensor6LED6,Sensor7LED6,Sensor8LED6,Sensor1LED7,Sensor2LED7,Sensor3LED7,Sensor4LED7,Sensor5LED7,Sensor6LED7,Sensor7LED7,Sensor8LED7,Sensor1LED8,Sensor2LED8,Sensor3LED8,Sensor4LED8,Sensor5LED8,Sensor6LED8,Sensor7LED8,Sensor8LED8," );
             s.AppendLine();
 
-            foreach ( var measurement in measurements.OrderBy( x => x.MeasurementOn ) )
+            foreach ( var measurement in measurements )
             {
                 var clientGuid = measurement.ClientGUID.ToString();
                 var patientID = measurement.PatientID.ToString();
-                var measurementOn = TimeZoneInfo.ConvertTimeFromUtc( measurement.MeasurementOn, timeZoneInfo ).ToString( "yyyy-MM-dd H:mm:ss" );
+                var measurementOn = measurement.MeasurementOn.ToString( "yyyy-MM-dd H:mm:ss" );
                 var calculatedVolume = measurement.CalculatedVolume.ToString();
                 var isPatientRatingThumbsUp = measurement.IsPatientRatingThumbsUp.HasValue && measurement.IsPatientRatingThumbsUp.Value ? "TRUE" : "FALSE";
                 var isPatientRatingThumbsDown = measurement.IsPatientRatingThumbsDown.HasValue && measurement.IsPatientRatingThumbsDown.Value ? "TRUE" : "FALSE";
@@ -280,7 +274,7 @@ namespace BVS.Controllers
                     foreach ( var submeasurement in submeasurements )
                     {
                         var subClientGuid = submeasurement.ClientGUID.ToString();
-                        var subMeasurementOn = TimeZoneInfo.ConvertTimeFromUtc( submeasurement.MeasurementOn, timeZoneInfo ).ToString( "yyyy-MM-dd H:mm:ss" );
+                        var subMeasurementOn = submeasurement.MeasurementOn.ToString( "yyyy-MM-dd H:mm:ss" );
                         var subCalculatedVolume = submeasurement.CalculatedVolume.ToString();
 
                         var sensor1LED1 = submeasurement.Sensor1LED1.ToString();
@@ -361,7 +355,7 @@ namespace BVS.Controllers
                 }
                 else
                 {
-                    s.AppendFormat( "{0},{1},{2},{3},{4},{5},{6},{7}", clientGuid, patientID, TimeZoneInfo.ConvertTimeFromUtc( measurement.MeasurementOn, timeZoneInfo ), calculatedVolume, isPatientRatingThumbsUp, isPatientRatingThumbsDown, patientRating, patientFeedback );
+                    s.AppendFormat( "{0},{1},{2},{3},{4},{5},{6},{7}", clientGuid, patientID, measurementOn, calculatedVolume, isPatientRatingThumbsUp, isPatientRatingThumbsDown, patientRating, patientFeedback );
                     s.AppendLine();
                 }
             }
